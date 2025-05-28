@@ -13,7 +13,7 @@ def databaseConect():
     )
     return sql
 sql = mysql.connector.connect(
-        hhost='yamabiko.proxy.rlwy.net',
+        host='yamabiko.proxy.rlwy.net',
         user='root',
         port=55826,
         password='raOwAAdgvcNooZJeRBMqOsiIxxQcjbWi'
