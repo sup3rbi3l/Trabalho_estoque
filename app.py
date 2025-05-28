@@ -10,7 +10,7 @@ def databaseConect():
         port=55826,
         user='root',
         password='raOwAAdgvcNooZJeRBMqOsiIxxQcjbWi',
-        database ='estoque'
+        database ='railway'
     )
     return sql
 
@@ -25,7 +25,7 @@ sql = pymysql.connect(
 
 data = sql.cursor()
 
-data.execute('SELECT COUNT(*) FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = "estoque";')
+data.execute('SELECT COUNT(*) FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = "railway";')
 result = data.fetchone()[0]
 
 if result > 0:
@@ -35,7 +35,7 @@ if result > 0:
 
 else:
     print('chegou foda')
-    data.execute('CREATE DATABASE estoque;')
+    data.execute('CREATE DATABASE railway;')
     sql.commit()
     sql = databaseConect()
     data = sql.cursor()
