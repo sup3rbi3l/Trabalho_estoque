@@ -1,0 +1,25 @@
+
+
+
+{% extends "template.html" %}
+
+
+{% block conteudo %}
+
+<form method ="POST" action="/update_product/{{id}}">
+
+    <div>
+        <input type="text" name="name" placeholder="Nome do produto">
+    </div>
+    <div>
+        <input type="text" name="price" placeholder="preço do produto">
+    </div>
+    <div>
+        <input type="text" name="quantity" placeholder="Quantidade do produto">
+    </div>
+    <br>
+    <button type="submit">Atualizar produto</button>
+
+</form>
+
+{% endblock %}

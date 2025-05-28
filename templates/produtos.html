@@ -1,0 +1,33 @@
+
+{% extends "template.html" %}
+
+{% block conteudo %}
+
+
+
+<table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Deletar</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in table_data %}
+            <tr>
+                <td>{{ data[1] }}</td>
+                <td>R${{ data[2] }}</td>
+                <td>{{ data[3] }}</td>
+                <td><a class="button_delete" href="/delete_product/{{ data[0]}}">Deletar</a></td>
+                <td><a class="button_edit" href="/update_product/{{ data[0]}}">Editar</a></td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+{% endblock %}
