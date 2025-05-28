@@ -1,23 +1,27 @@
 from flask import Flask, render_template, request, redirect, url_for,send_file,after_this_request
 import os
 import mysql.connector
+import pymysql
 
 app = Flask(__name__)
 def databaseConect():
-    sql = mysql.connector.connect(
+    sql = pymysql.connect(
         host='yamabiko.proxy.rlwy.net',
-        user='root',
         port=55826,
+        user='root',
         password='raOwAAdgvcNooZJeRBMqOsiIxxQcjbWi',
         database ='estoque'
     )
     return sql
-sql = mysql.connector.connect(
+
+sql = pymysql.connect(
         host='yamabiko.proxy.rlwy.net',
-        user='root',
         port=55826,
-        password='raOwAAdgvcNooZJeRBMqOsiIxxQcjbWi'
-    )
+        user='root',
+        password='raOwAAdgvcNooZJeRBMqOsiIxxQcjbWi',
+)
+
+
 
 data = sql.cursor()
 
