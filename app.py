@@ -1,27 +1,24 @@
 from flask import Flask, render_template, request, redirect, url_for,send_file,after_this_request
 import os
-import mysql.connector
 import pymysql
 
 app = Flask(__name__)
 def databaseConect():
     sql = pymysql.connect(
-        host='yamabiko.proxy.rlwy.net',
+        host='trolley.proxy.rlwy.net',
         port=55826,
         user='root',
-        password='raOwAAdgvcNooZJeRBMqOsiIxxQcjbWi',
+        password='NFKhjuHSSxPPbBKVbpwxBKTRmEQWfHxr',
         database ='railway'
     )
     return sql
 
 sql = pymysql.connect(
-        host='yamabiko.proxy.rlwy.net',
+        host='trolley.proxy.rlwy.net',
         port=55826,
         user='root',
-        password='raOwAAdgvcNooZJeRBMqOsiIxxQcjbWi',
+        password='NFKhjuHSSxPPbBKVbpwxBKTRmEQWfHxr',
 )
-
-
 
 data = sql.cursor()
 
@@ -32,6 +29,23 @@ if result > 0:
     sql.close()
     sql = databaseConect()
     print('Banco encontrado')
+    
+    data = sql.cursor()
+    
+    data.execute("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'railway' AND table_name = 'produtos'")
+
+    result = data.fetchone()[0]
+    if result == 0:
+        
+        data.execute("CREATE TABLE produtos (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(255), preco DECIMAL(10, 2),quantidade INT);")
+        
+        sql.commit()
+        print('tabela produtos criada')
+    
+    else:
+
+        print('tabela produtos ja existia')
+    sql.close()
 
 else:
     print('chegou foda')
