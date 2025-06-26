@@ -6,7 +6,7 @@ app = Flask(__name__)
 def databaseConect():
     sql = pymysql.connect(
         host='trolley.proxy.rlwy.net',
-        port=55826,
+        port=25526,
         user='root',
         password='NFKhjuHSSxPPbBKVbpwxBKTRmEQWfHxr',
         database ='railway'
@@ -15,7 +15,7 @@ def databaseConect():
 
 sql = pymysql.connect(
         host='trolley.proxy.rlwy.net',
-        port=55826,
+        port=25526,
         user='root',
         password='NFKhjuHSSxPPbBKVbpwxBKTRmEQWfHxr',
 )
